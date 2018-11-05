@@ -1,0 +1,15 @@
+main {
+  border: 1px solid red; }
+
+.footer {
+  border: 1px solid green; }
+
+.main {
+  height: calc(100vh - 80px); }
+
+.footer {
+  height: 80px; }
+
+@media (max-width: 540px) {
+  .footer {
+    height: 60px; } }
