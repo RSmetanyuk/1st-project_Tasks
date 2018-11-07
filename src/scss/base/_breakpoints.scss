@@ -1,7 +1,7 @@
 $x-large: 'min-width: 1371px';
-$large: 'max-width: 1200px';
-$medium: 'max-width: 720px';
-$small: 'max-width: 540px';
+$large: 'min-width: 1201px';
+$medium: 'min-width: 721px';
+$small: 'max-width: 720px';
 
 @mixin breakpoint($point) {
   @if $point == desktop {
@@ -11,7 +11,7 @@ $small: 'max-width: 540px';
     @media ($large) { @content ; }
   }
   @else if $point == tablet {
-    @media ($s-medium) { @content ; }
+    @media ($medium) { @content ; }
   }
   @else if $point == mobile {
     @media ($small) { @content ; }

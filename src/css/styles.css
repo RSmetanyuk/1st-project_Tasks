@@ -1,8 +1,23 @@
+.ap-wrapper {
+  border: 1px solid yellowgreen; }
+
 main {
   border: 1px solid red; }
 
 .footer {
   border: 1px solid green; }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: 78829d; }
 
 .main {
   height: calc(100vh - 80px); }
@@ -10,6 +25,24 @@ main {
 .footer {
   height: 80px; }
 
-@media (max-width: 540px) {
+.ap-wrapper {
+  margin: auto;
+  overflow: hidden; }
+  @media (min-width: 1201px) {
+    .ap-wrapper {
+      width: 1150px; } }
+
+@media (min-width: 1201px) {
+  .main {
+    float: left;
+    width: calc(100% -  60px);
+    height: 100vh; } }
+
+@media (max-width: 720px) {
   .footer {
     height: 60px; } }
+
+@media (min-width: 1201px) {
+  .footer {
+    width: 60px;
+    float: left; } }

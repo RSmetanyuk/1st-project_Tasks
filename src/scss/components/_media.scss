@@ -1,5 +1,24 @@
+.ap-wrapper {
+  margin: auto;
+  @include breakpoint(laptop) {
+		width: $ap-wrapper-max-width;
+  }
+  overflow: hidden;
+}
+.main {
+  @include breakpoint(laptop) {
+    float: left;
+    width: calc(100% -  #{$sidebar-width});
+    height: 100vh;
+	}
+}
+
 .footer {
 	@include breakpoint(mobile) {
-		height: $footer-height-mobile;
+    height: $footer-height-mobile;
+  }
+  @include breakpoint(laptop) {
+    width: $sidebar-width;
+    float: left;
 	}
 }
