@@ -1,3 +1,30 @@
 .footer {
   height: $footer-height;
+  /*display: flex;
+  justify-content: space-around;
+  align-items: flex-start;*/
+  
+  ul {
+    display: flex;
+    li {
+      width: 20%;
+      height: $footer-height;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-around;
+
+      a{
+        height: min-content;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+          :first-child {
+          margin: auto;
+          font-size: 20px;
+        }        
+      }
+    }
+  }
 }

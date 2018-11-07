@@ -1,7 +1,8 @@
 .ap-wrapper {
   margin: auto;
+  height: 100vh;
   @include breakpoint(laptop) {
-		width: $ap-wrapper-max-width;
+		width: $ap-max-width;
   }
   overflow: hidden;
 }
@@ -14,11 +15,19 @@
 }
 
 .footer {
-	@include breakpoint(mobile) {
-    height: $footer-height-mobile;
-  }
-  @include breakpoint(laptop) {
-    width: $sidebar-width;
+	@include breakpoint(laptop) {
     float: left;
+    width: $sidebar-width;
+    height: 100%;
+
+    ul {
+      flex-direction: column;
+      li{
+        width: 100%;   
+        a {
+          
+        }
+      }
+    }
 	}
 }
