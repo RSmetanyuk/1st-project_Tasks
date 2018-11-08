@@ -1,12 +1,24 @@
 .ap-wrapper {
   margin: auto;
   height: 100vh;
+  padding: 0.5vw;
+  font-size: 3vw;
   @include breakpoint(laptop) {
-		width: $ap-max-width;
+    width: $ap-max-width;
+    font-size: $base-font-size;
   }
   overflow: hidden;
 }
 .main {
+  @include breakpoint(tablet) {
+    .today {
+      height: 29px;
+      font-size: calc(#{$base-font-size} * 1.25);
+    }
+    .today__date-logo{
+      font-size: $base-font-size;
+    }
+  }
   @include breakpoint(laptop) {
     float: left;
     width: calc(100% -  #{$sidebar-width});
@@ -15,7 +27,13 @@
 }
 
 .footer {
-	@include breakpoint(laptop) {
+  @include breakpoint(tablet) {
+    ul li a {
+      font-size: calc(#{$base-font-size} * 1.25);
+    }
+	}
+  
+  @include breakpoint(laptop) {
     float: left;
     width: $sidebar-width;
     height: 100%;

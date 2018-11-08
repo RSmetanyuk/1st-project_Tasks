@@ -1,9 +1,6 @@
 .footer {
   height: $footer-height;
-  /*display: flex;
-  justify-content: space-around;
-  align-items: flex-start;*/
-  
+
   ul {
     display: flex;
     li {
@@ -13,9 +10,9 @@
       display: flex;
       justify-content: space-around;
 
-      a{
+      a {
         height: min-content;
-        font-size: 14px;
+        font-size: 3vw;
         display: flex;
         justify-content: center;
         flex-direction: column;

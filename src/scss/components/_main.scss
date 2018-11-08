@@ -2,3 +2,34 @@
   height: calc(100vh - #{$footer-height});
 }
 
+.today {
+  height: 4vw;
+  display: flex;
+  &__week {
+    width: calc(100% / 3);
+  }
+  &__name {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__date-wrapper {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid black;
+  }
+  &__date {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid black;
+  }
+  &__date-logo{
+    margin: auto 1vw;
+    font-size: 2vw;
+  }
+}
+
