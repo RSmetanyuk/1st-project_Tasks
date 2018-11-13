@@ -1,0 +1,24 @@
+.task-edit {
+  &__top-panel {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__type-case {
+    width: 8%;
+  }
+  &__task-header {
+    margin-top: 3vw;
+    display: flex;
+    justify-content: center;
+  }
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__button-save {
+    border: 1px solid black;
+    width: 50px;
+  }
+}
+
+

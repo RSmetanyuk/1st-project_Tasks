@@ -1,0 +1,12 @@
+.ap-wrapper {
+  margin: auto;
+  height: 100vh;
+  padding: 0.5vw;
+  font-size: 3vw;
+  @include breakpoint(tablet) {
+    font-size: $base-font-size;
+  }
+  @include breakpoint(laptop) {
+    width: $ap-max-width;
+  }
+}

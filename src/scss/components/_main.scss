@@ -1,10 +1,10 @@
 .main {
-  height: calc(100vh - #{$footer-height});
+  height: calc(100% - #{$footer-height});
 }
-
-.today {
+.day-header {
   height: 4vw;
   display: flex;
+  margin-bottom: 3px;
   &__week {
     width: calc(100% / 3);
   }
@@ -29,7 +29,40 @@
   }
   &__date-logo{
     margin: auto 1vw;
-    font-size: 2vw;
+  }
+}
+
+.task {
+  margin-bottom: 6px;
+  border: 1px solid black;
+  &__task-main {
+    padding-left: 3px;
+    display: flex; 
+  }
+  &__task-date-type {
+    width: 5%;
+  }
+  &__task-date {
+    width: 10%;
+  }
+  &__task-header {
+    width: 70%
+  }
+  &__task-type {
+    width: 5%;
+    text-align: center;
+  }
+  &__task-edit-button {
+    width: 5%;
+    text-align: center;
+  }
+  &__task-deleat-button {
+    width: 5%;
+    text-align: center;
+  }
+  &__task-details {
+    padding-left: 3px;
+    border-top: 1px solid gray; 
   }
 }
 

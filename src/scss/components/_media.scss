@@ -1,38 +1,20 @@
-.ap-wrapper {
-  margin: auto;
-  height: 100vh;
-  padding: 0.5vw;
-  font-size: 3vw;
-  @include breakpoint(laptop) {
-    width: $ap-max-width;
-    font-size: $base-font-size;
-  }
-  overflow: hidden;
-}
 .main {
   @include breakpoint(tablet) {
-    .today {
+    .day-header {
       height: 29px;
-      font-size: calc(#{$base-font-size} * 1.25);
     }
-    .today__date-logo{
+    .day-header__date-logo, .task {
       font-size: $base-font-size;
     }
   }
   @include breakpoint(laptop) {
     float: left;
     width: calc(100% -  #{$sidebar-width});
-    height: 100vh;
+    height: 100%;
 	}
 }
 
 .footer {
-  @include breakpoint(tablet) {
-    ul li a {
-      font-size: calc(#{$base-font-size} * 1.25);
-    }
-	}
-  
   @include breakpoint(laptop) {
     float: left;
     width: $sidebar-width;
@@ -42,9 +24,6 @@
       flex-direction: column;
       li{
         width: 100%;   
-        a {
-          
-        }
       }
     }
 	}
