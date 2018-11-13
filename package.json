@@ -10,6 +10,7 @@
     "lint:watch": "esw --watch",
     "stylelint": "stylelint './src/**/*.css'",
     "precommit": "npm run lint && npm run stylelint",
+    "precommit": "",
     "prepush": "npm run test",
     "scss": "node-sass --watch src/scss -o src/css"
   },
@@ -40,5 +41,7 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
 }

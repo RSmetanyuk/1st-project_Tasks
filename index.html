@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <div class="task-edit">
+      <div class="task-edit hidden">
           <div class="task-edit__top-panel">
             <div class="task-edit__type-case">
               <span class="glyphicon glyphicon-briefcase"></span>
@@ -83,14 +83,18 @@
           <p>Task details</p>
           <textarea rows="4" cols="50"></textarea>
           <div class="task-edit__buttons-wrapper">
-            <div class="task-edit_button-save">
-              Save
+            <button class="task-edit_button-back" type="button">
+              <span class="glyphicon glyphicon-backward"></span>
+              Back
+            </button>
+            <button class="task-edit_button-back" type="button">
               <span class="glyphicon glyphicon-ok"></span>
-            </div>
-            <div class="task-edit__button-remove">
-              Remove
+              Save              
+            </button>           
+            <button class="task-edit__button-remove" type="button">
               <span class="glyphicon glyphicon-remove"></span>
-            </div>
+              Remove              
+            </button>
           </div>
       </div>
     </main>
@@ -98,31 +102,31 @@
     <footer class="footer">
       <ul>
         <li>
-          <a href="#">
+          <button class="footer-button button-new" type="button">
             <span class="glyphicon glyphicon glyphicon-plus-sign"></span>
             New
-          </a>
+          </button>
         </li>
         <li>
-          <a href="#">
+          <a class="footer-button button-search" href="#">
             <span class="glyphicon glyphicon-search"></span>
             Search
           </a>
         </li>        
         <li>
-          <a href="#">
+          <a class="footer-button button-config" href="#">
             <span class="glyphicon glyphicon-cog"></span>
             Settings
           </a>
         </li>
         <li>
-          <a href="#">
+          <a class="footer-button button-calendar" href="#">
              <span class="glyphicon glyphicon-calendar"></span>
              Calendar
           </a>
         </li>
         <li>
-          <a href="#">
+          <a class="footer-button button-trash" href="#">
             <span class="glyphicon glyphicon-trash"></span>
             Deleated
           </a>

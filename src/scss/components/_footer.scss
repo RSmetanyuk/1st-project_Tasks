@@ -16,10 +16,20 @@
         justify-content: center;
         flex-direction: column;
 
-          :first-child {
+        :first-child {
           margin: auto;
         }        
       }
     }
+  }
+  &-button {
+    width: 60%;
+    height: min-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    
   }
 }
