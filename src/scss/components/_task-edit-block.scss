@@ -2,13 +2,21 @@
   &__top-panel {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 2vw;
   }
   &__type-case {
     width: 8%;
   }
   &__task-header {
-
+    width: 100%;
+    margin-bottom: 2vw;
   }
+
+  &__task-details {
+    width: 100%;
+    margin-bottom: 2vw;    
+  }
+
   &__buttons-wrapper {
     display: flex;
     justify-content: space-around;

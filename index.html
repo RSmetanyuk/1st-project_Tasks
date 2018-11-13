@@ -5,7 +5,8 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
   <title>Tasks</title>
   <link rel="shortcut icon" href="src/images/tasks.ico" type="image/x-icon">
@@ -19,7 +20,11 @@
         
         <div class="day-header">
           <div class="day-header__week"></div>
-          <div class="day-header__name">Today:</div>
+          <div class="day-header__name-wrapper">
+            <button type="button" class="btn btn-outline-info"><span class="glyphicon glyphicon-backward"></span></button>
+            <div class="day-header__name">Today:</div>
+            <button type="button" class="btn btn-outline-info"><span class="glyphicon glyphicon-forward"></span></button>
+          </div>
           <div class="day-header__date-wrapper">
               <div class="day-header__date"></div>
               <span class="day-header__date-logo glyphicon glyphicon-calendar"></span>
@@ -29,12 +34,12 @@
         <div class="task">
           <div class="task__task-main">
               <div class="task__task-date-type">
-                  <span class="glyphicon glyphicon-log-in">
+                  <span class="glyphicon glyphicon-log-in"></span>
               </div>
               <div class="task__task-date"></div>
               <div class="task__task-header">Some task header 1</div>
               <div class="task__task-type">
-                <span class="glyphicon glyphicon-briefcase">
+                <span class="glyphicon glyphicon-briefcase"></span>
               </div>
               <div class="task__task-edit-button">
                 <span class="glyphicon glyphicon-option-horizontal"></span>
@@ -80,18 +85,18 @@
           </div>
           <div style="text-align:center">Task header</div>
           <input class="task-edit__task-header" type="text">
-          <p>Task details</p>
-          <textarea rows="4" cols="50"></textarea>
+          <p style="text-align:center">Task details</p>
+          <textarea class="task-edit__task-details" rows="10"></textarea>
           <div class="task-edit__buttons-wrapper">
-            <button class="task-edit_button-back" type="button">
+            <button class="task-edit_button-back btn btn-outline-primary" type="button">
               <span class="glyphicon glyphicon-backward"></span>
               Back
             </button>
-            <button class="task-edit_button-back" type="button">
+            <button class="task-edit_button-back btn btn-outline-success" type="button">
               <span class="glyphicon glyphicon-ok"></span>
               Save              
             </button>           
-            <button class="task-edit__button-remove" type="button">
+            <button class="task-edit__button-remove btn btn-outline-danger" type="button">
               <span class="glyphicon glyphicon-remove"></span>
               Remove              
             </button>
@@ -102,7 +107,7 @@
     <footer class="footer">
       <ul>
         <li>
-          <button class="footer-button button-new" type="button">
+          <button class="footer-button button-new btn btn-outline-info" type="button">
             <span class="glyphicon glyphicon glyphicon-plus-sign"></span>
             New
           </button>

@@ -2,17 +2,20 @@
   height: calc(100% - #{$footer-height});
 }
 .day-header {
-  height: 4vw;
+  height: 25px;
   display: flex;
   margin-bottom: 3px;
   &__week {
     width: calc(100% / 3);
   }
-  &__name {
+  &__name-wrapper {
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
-    align-items: center;
+  }
+  &__name {
+    width: 60%;
+    text-align: center;  
   }
   &__date-wrapper {
     width: calc(100% / 3);

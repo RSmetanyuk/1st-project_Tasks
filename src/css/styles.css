@@ -26,16 +26,18 @@ a {
   height: calc(100% - 65px); }
 
 .day-header {
-  height: 4vw;
+  height: 25px;
   display: flex;
   margin-bottom: 3px; }
   .day-header__week {
     width: calc(100% / 3); }
-  .day-header__name {
+  .day-header__name-wrapper {
     width: calc(100% / 3);
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    justify-content: center; }
+  .day-header__name {
+    width: 60%;
+    text-align: center; }
   .day-header__date-wrapper {
     width: calc(100% / 3);
     display: flex;
@@ -77,10 +79,19 @@ a {
 
 .task-edit__top-panel {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-bottom: 2vw; }
 
 .task-edit__type-case {
   width: 8%; }
+
+.task-edit__task-header {
+  width: 100%;
+  margin-bottom: 2vw; }
+
+.task-edit__task-details {
+  width: 100%;
+  margin-bottom: 2vw; }
 
 .task-edit__buttons-wrapper {
   display: flex;
@@ -114,10 +125,10 @@ a {
     justify-content: center;
     flex-direction: column;
     align-items: center; }
+    .footer-button :first-child {
+      margin: auto; }
 
 @media (min-width: 721px) {
-  .main .day-header {
-    height: 29px; }
   .main .day-header__date-logo, .main .task {
     font-size: 16px; } }
 

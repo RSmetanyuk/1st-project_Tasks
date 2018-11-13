@@ -1,8 +1,5 @@
 .main {
   @include breakpoint(tablet) {
-    .day-header {
-      height: 29px;
-    }
     .day-header__date-logo, .task {
       font-size: $base-font-size;
     }
