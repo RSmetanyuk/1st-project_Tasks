@@ -21,11 +21,11 @@
         <div class="day-header">
           <div class="day-header__week"></div>
           <div class="day-header__name-wrapper">
-            <button type="button" class="btn btn-outline-info"><span class="glyphicon glyphicon-backward"></span></button>
+            <button type="button" class="main-date__prev-btn btn btn-outline-info"><span class="glyphicon glyphicon-backward"></span></button>
             <div class="day-header__name">Today:</div>
-            <button type="button" class="btn btn-outline-info"><span class="glyphicon glyphicon-forward"></span></button>
+            <button type="button" class="main-date__next-btn btn btn-outline-info"><span class="glyphicon glyphicon-forward"></span></button>
           </div>
-          <div class="day-header__date-wrapper">
+          <div class="day-header__date-wrapper border border-info rounded">
               <div class="day-header__date"></div>
               <span class="day-header__date-logo glyphicon glyphicon-calendar"></span>
           </div>
@@ -33,7 +33,7 @@
 
         <div class="task">
           <div class="task__task-main">
-              <div class="task__task-date-type">
+              <div class="task__task-date-type ">
                   <span class="glyphicon glyphicon-log-in"></span>
               </div>
               <div class="task__task-date"></div>
@@ -63,30 +63,30 @@
 
       <div class="task-edit hidden">
           <div class="task-edit__top-panel">
-            <div class="task-edit__type-case">
+            <div class="task-edit__type-case btn btn-outline-info">
               <span class="glyphicon glyphicon-briefcase"></span>
             </div>
-            <div class="task-edit__type-case">
+            <div class="task-edit__type-case btn btn-outline-info">
               <span class="glyphicon glyphicon-earphone"></span>
             </div>
             <div>
-              <input type="time" name="task-time">
-              <input type="date" name="task-day">
+              <input class="border border-info rounded" type="time" name="task-time">
+              <input class="border border-info rounded" type="date" name="task-day">
             </div>
-            <div class="task-edit__date-type-up-to">
+            <div class="task-edit__date-type-up-to btn btn-outline-info">
               <span class="glyphicon glyphicon-log-in"></span>
             </div>
-            <div class="task-edit__date-type-all-day">
+            <div class="task-edit__date-type-all-day btn btn-outline-info">
               <span class="glyphicon glyphicon-unchecked"></span>  
             </div>
-            <div class="task-edit_date-type-start-from">
+            <div class="task-edit_date-type-start-from btn btn-outline-info">
               <span class="glyphicon glyphicon-log-out"></span>  
             </div>                           
           </div>
-          <div style="text-align:center">Task header</div>
-          <input class="task-edit__task-header" type="text">
-          <p style="text-align:center">Task details</p>
-          <textarea class="task-edit__task-details" rows="10"></textarea>
+          <p class="text-center">Task header</p>
+          <input class="task-edit__task-header border border-info rounded" type="text">
+          <p class="text-center">Task details</p>
+          <textarea class="task-edit__task-details border border-info rounded" rows="10"></textarea>
           <div class="task-edit__buttons-wrapper">
             <button class="task-edit_button-back btn btn-outline-primary" type="button">
               <span class="glyphicon glyphicon-backward"></span>

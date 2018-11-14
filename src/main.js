@@ -18,9 +18,9 @@ const NowMoment = moment();
 const $$menueButtons = document.getElementsByClassName('footer-button');
 const $buttonNew = $$menueButtons[0];
 const $taskEditButtonBack = document.getElementsByClassName('task-edit_button-back')[0];
-const mainWiewingDay = NowMoment;
-//const milisecInDay = 8.64e+7;
-
+const $mainDatePrevBtn = document.getElementsByClassName('main-date__prev-btn')[0];
+const $mainDateNextBtn = document.getElementsByClassName('main-date__next-btn')[0];
+let mainWiewingDay = moment();
 
 document.getElementsByClassName('day-header__date')[0].innerHTML = 
   mainWiewingDay.format('D MMM YYYY');
@@ -40,9 +40,24 @@ const taskEditButtonBackOnClick = () => {
   $buttonNew.removeAttribute('disabled');
 };
 
+const changeMainDate = days => {
+  mainWiewingDay.add('days', days);
+  document.getElementsByClassName('day-header__date')[0].innerHTML = 
+  mainWiewingDay.format('D MMM YYYY');
+document.getElementsByClassName('day-header__week')[0].innerHTML = 
+  `${mainWiewingDay.format('Wo')} week`;
+  console.log(mainWiewingDay);
+};
+
+const incrMainDate = () => changeMainDate(1);
+const decrMainDate = () => changeMainDate(-1);
+
 const init = () => {
+  $mainDatePrevBtn.addEventListener('click', decrMainDate);
+  $mainDateNextBtn.addEventListener('click', incrMainDate);
   $buttonNew.addEventListener('click', buttonNewOnClick);
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
+  $buttonNew.addEventListener('click', buttonNewOnClick);
 };
 
 init();
