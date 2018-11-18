@@ -28,7 +28,15 @@ a {
 .day-header {
   height: 25px;
   display: flex;
-  margin-bottom: 3px; }
+  margin-bottom: 3px;
+  /*__date {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #17a2b8;;
+  }
+  */ }
   .day-header__week {
     width: calc(100% / 3); }
   .day-header__name-wrapper {
@@ -41,16 +49,7 @@ a {
   .day-header__date-wrapper {
     width: calc(100% / 3);
     display: flex;
-    justify-content: flex-end;
-    border: 1px solid black; }
-  .day-header__date {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid black; }
-  .day-header__date-logo {
-    margin: auto 1vw; }
+    justify-content: flex-end; }
 
 .task {
   margin-bottom: 6px;
@@ -129,7 +128,7 @@ a {
       margin: auto; }
 
 @media (min-width: 721px) {
-  .main .day-header__date-logo, .main .task {
+  .main .task {
     font-size: 16px; } }
 
 @media (min-width: 1201px) {

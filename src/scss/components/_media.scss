@@ -1,6 +1,6 @@
 .main {
   @include breakpoint(tablet) {
-    .day-header__date-logo, .task {
+    .task {
       font-size: $base-font-size;
     }
   }

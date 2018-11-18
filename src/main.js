@@ -1,4 +1,15 @@
 const NowMoment = moment();
+/*
+moment.updateLocale('en', {
+  calendar : {
+      lastDay : '[Yesterday]',
+      sameDay : '[Today]',
+      nextDay : '[Tomorrow]',
+      lastWeek : '[Last] dddd',
+      nextWeek : '[Next] dddd',
+      sameElse : 'L'
+  }
+});
 //const taskDateTypes = {1: 'up-to', 2: 'start-from', 3: 'all-day'};
 //const taskTypes = {1: 'case', 2: 'call', 3: 'trip'};
 /*const taskList = [{
@@ -20,13 +31,15 @@ const $buttonNew = $$menueButtons[0];
 const $taskEditButtonBack = document.getElementsByClassName('task-edit_button-back')[0];
 const $mainDatePrevBtn = document.getElementsByClassName('main-date__prev-btn')[0];
 const $mainDateNextBtn = document.getElementsByClassName('main-date__next-btn')[0];
+const $mainWiewingWeek = document.getElementsByClassName('day-header__week')[0];
+const $mainWiewingDay = document.getElementsByClassName('day-header__date')[0];
+const $mainWiewingDayName = document.getElementsByClassName('day-header__name')[0];
 let mainWiewingDay = moment();
 
-document.getElementsByClassName('day-header__date')[0].innerHTML = 
-  mainWiewingDay.format('D MMM YYYY');
-document.getElementsByClassName('day-header__week')[0].innerHTML = 
-  `${mainWiewingDay.format('Wo')} week`;
-document.getElementsByClassName('task__task-date')[0].innerHTML = NowMoment.format('HH : MM');
+
+/*
+$mainWiewingDay.addEventListener('keyup', ({key, target}) => {
+*/
 
 const buttonNewOnClick = () => {
   document.getElementsByClassName('task-edit')[0].classList.toggle('hidden');
@@ -40,21 +53,34 @@ const taskEditButtonBackOnClick = () => {
   $buttonNew.removeAttribute('disabled');
 };
 
-const changeMainDate = days => {
-  mainWiewingDay.add('days', days);
-  document.getElementsByClassName('day-header__date')[0].innerHTML = 
-  mainWiewingDay.format('D MMM YYYY');
-document.getElementsByClassName('day-header__week')[0].innerHTML = 
-  `${mainWiewingDay.format('Wo')} week`;
-  console.log(mainWiewingDay);
+const mainWiewingDayOnInput = () => {
+  mainWiewingDay = moment($mainWiewingDay.value);
+  $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
+  $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
 };
 
-const incrMainDate = () => changeMainDate(1);
-const decrMainDate = () => changeMainDate(-1);
+const changeMainWiewingDay = days => {
+  mainWiewingDay.add('days', days);
+  $mainWiewingDay.value = mainWiewingDay.format('YYYY-MM-DD');
+  $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
+  $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
+};
+
+const makeMainWiewingDayName = () => {
+  return (Math.abs(moment().diff(mainWiewingDay, 'days')) < 1) ? 
+    mainWiewingDay.calendar().split(' ')[0] :
+    mainWiewingDay.fromNow();
+};
+
+const incrMainWiewingDay = () => changeMainWiewingDay(1);
+const decrMainWiewingDay = () => changeMainWiewingDay(-1);
 
 const init = () => {
-  $mainDatePrevBtn.addEventListener('click', decrMainDate);
-  $mainDateNextBtn.addEventListener('click', incrMainDate);
+  changeMainWiewingDay(0);
+  document.getElementsByClassName('task__task-date')[0].innerHTML = NowMoment.format('HH : MM');  //temporary
+  $mainDatePrevBtn.addEventListener('click', decrMainWiewingDay);
+  $mainDateNextBtn.addEventListener('click', incrMainWiewingDay);
+  $mainWiewingDay.addEventListener('input', mainWiewingDayOnInput);
   $buttonNew.addEventListener('click', buttonNewOnClick);
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
   $buttonNew.addEventListener('click', buttonNewOnClick);

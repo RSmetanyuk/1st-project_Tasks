@@ -21,18 +21,15 @@
     width: calc(100% / 3);
     display: flex;
     justify-content: flex-end;
-    border: 1px solid black;
   }
-  &__date {
-    width: 80%;
+  /*__date {
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid black;
+    border-right: 1px solid #17a2b8;;
   }
-  &__date-logo{
-    margin: auto 1vw;
-  }
+  */
 }
 
 .task {
