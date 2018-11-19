@@ -1,20 +1,37 @@
 const NowMoment = moment();
 
 //const taskDateTypes = {up-to: 'log-in', all-day: 'unchecked', start-from: 'log-out'};
-//const taskTypes = {0: 'briefcase', 1: 'earphone', 2: 'road'};
+//const taskTypes = {case: 'briefcase', call: 'earphone', trip: 'road'};
 const taskList = [{
-  date: 1000000000000, 
-  taskHeader: 'Some task header 1', 
-  taskDetails: 'some task details details ', 
-  taskDateType: 'log-out', 
-  taskType: 'road',
-  deleated: false}, {
-  date: 2000000000000, 
-  taskHeader: 'Some task new header', 
-  taskDetails: 'some task details details details details details ', 
-  taskDateType: 'log-in', 
-  taskType: 'briefcase',
-  deleated: false}];
+  date: "2018-11-19",
+  datePrimitive: 1542659940000,
+  deleated: false,
+  taskDateType: "log-out",
+  taskDetails: "app details. Task started from specified hours",
+  taskHeader: "app header",
+  taskType: "briefcase",
+  time: "22:39"
+},
+{
+  date: "2018-11-20",
+  datePrimitive: 1542746640000,
+  deleated: false,
+  taskDateType: "log-out",
+  taskDetails: "app details. Task started from specified hours",
+  taskHeader: "app header",
+  taskType: "earphone",
+  time: "22:44"
+},
+{
+  date: "2018-11-19",
+  datePrimitive: 1542659940000,
+  deleated: false,
+  taskDateType: "log-in",
+  taskDetails: "app details. Task started from specified hours bbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  taskHeader: "app header another",
+  taskType: "road",
+  time: "22:39"
+}];
 
 const $$menueButtons = document.getElementsByClassName('footer-button');
 const $buttonNew = $$menueButtons[0];
@@ -37,8 +54,8 @@ let mainWiewingDay = moment();
 
 const taskEditFormReset= () => {
   $$taskEditTypesInput[0].checked = true;
-  $taskEditTime.value = moment().format('HH:mm');
-  $taskEditDate.value = moment().format('YYYY-MM-DD');
+  $taskEditTime.value = mainWiewingDay.format('HH:mm');
+  $taskEditDate.value = mainWiewingDay.format('YYYY-MM-DD');
   $$taskEditdDateTypes[2].checked = true;
   $taskEditTaskHeader.value = '';
   $taskEditTaskDetails.value = '';
@@ -73,6 +90,7 @@ const mainWiewingDayOnInput = () => {
   mainWiewingDay = moment($mainWiewingDay.value);
   $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
   $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
+  renderTasks(mainWiewingDay.format('YYYY-MM-DD'));
 };
 
 const ceateNewTaskInTaskListArray = () => {
@@ -83,11 +101,13 @@ const ceateNewTaskInTaskListArray = () => {
     time: $taskEditTime.value,
     taskHeader: $taskEditTaskHeader.value, 
     taskDetails: $taskEditTaskDetails.value, 
-    taskDateType: findFormValue('form-date-types-input'), 
+    taskDateType: findFormValue('form-date-types-input'),
     taskType: findFormValue('form-task-types-input'),
     deleated: false
   };
   taskList.push(newTask);
+  taskList.sort((a,b) => (a.datePrimitive > b.datePrimitive) ? 1 :
+    ((b.datePrimitive > a.datePrimitive) ? -1 : 0));
   return newTask;
 };
 
@@ -97,11 +117,10 @@ const makeMainWiewingDayName = () => {
     mainWiewingDay.fromNow();
 };
 
-const changeMainWiewingDay = days => {
-  mainWiewingDay.add('days', days);
-  $mainWiewingDay.value = mainWiewingDay.format('YYYY-MM-DD');
-  $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
-  $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
+const changeMainWiewingDay = day => {
+  mainWiewingDay.add('days', day);
+  renderMainWiewingDay();  
+  renderTasks(mainWiewingDay.format('YYYY-MM-DD'));
 };
 
 const incrMainWiewingDay = () => changeMainWiewingDay(1);
@@ -121,10 +140,10 @@ const createHtmlTask = (objectTask) => {
         <span class="glyphicon glyphicon-${objectTask.taskDateType}"></span>
       </div>
       <div class="task__task-date">${objectTask.time}</div>
-      <div class="task__task-header">${objectTask.taskHeader}</div>
       <div class="task__task-type">
-        <span class="glyphicon glyphicon-${objectTask.taskType}"></span>
+      <span class="glyphicon glyphicon-${objectTask.taskType}"></span>
       </div>
+      <div class="task__task-header">${objectTask.taskHeader}</div>
       <div class="task__task-edit-button">
         <span class="glyphicon glyphicon-cog"></span>
       </div>
@@ -135,10 +154,27 @@ const createHtmlTask = (objectTask) => {
     <div class="task__task-details">${objectTask.taskDetails}</div>
   `;
   return $task;
-}
+};
+
+const renderMainWiewingDay = () => {
+  $mainWiewingDay.value = mainWiewingDay.format('YYYY-MM-DD');
+  $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
+  $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
+};
+
+const renderTasks = (day) => {
+  $tasksContainer.innerHTML = '';
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].date == day) {
+      const newHtmlTask = createHtmlTask(taskList[i]);
+      $tasksContainer.appendChild(newHtmlTask);
+    }
+  }
+};
 
 const init = () => {
-  changeMainWiewingDay(0);
+  renderMainWiewingDay();
+  renderTasks(mainWiewingDay.format('YYYY-MM-DD'));
   $mainDatePrevBtn.addEventListener('click', decrMainWiewingDay);
   $mainDateNextBtn.addEventListener('click', incrMainWiewingDay);
   $mainWiewingDay.addEventListener('input', mainWiewingDayOnInput);
