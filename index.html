@@ -33,84 +33,86 @@
           </div>
         </div>
 
-        <div class="task">
-          <div class="task__task-main">
-              <div class="task__task-date-type ">
-                  <span class="glyphicon glyphicon-log-in"></span>
-              </div>
-              <div class="task__task-date"></div>
-              <div class="task__task-header">Some task header 1</div>
-              <div class="task__task-type">
-                <span class="glyphicon glyphicon-briefcase"></span>
-              </div>
-              <div class="task__task-edit-button">
-                <span class="glyphicon glyphicon-option-horizontal"></span>
-              </div>
-              <div class="task__task-deleat-button">
-                  <span class="glyphicon glyphicon-remove"></span>
-              </div>
-          </div>              
-          <div class="task__task-details">some task details details details details details 1</div>
+        <div class="tasks-container">
+          <!--div class="task">
+            <div class="task__task-main">
+                <div class="task__task-date-type ">
+                    <span class="glyphicon glyphicon-log-in"></span>
+                </div>
+                <div class="task__task-date"></div>
+                <div class="task__task-header">Some task header 1</div>
+                <div class="task__task-type">
+                  <span class="glyphicon glyphicon-briefcase"></span>
+                </div>
+                <div class="task__task-edit-button">
+                  <span class="glyphicon glyphicon-option-horizontal"></span>
+                </div>
+                <div class="task__task-deleat-button">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </div>
+            </div>              
+            <div class="task__task-details">some task details details details details details 1</div>
+          </div-->
         </div>
-
-        <div class="day-header">
-          <div class="day-header__week"></div>
-          <div class="day-header__name">Tomorrow:</div>
-          <div class="day-header__date-wrapper">
-              <div class="day-header__date"></div>
-              <span class="day-header__date-logo glyphicon glyphicon-calendar"></span>
+          <div class="day-header">
+            <div class="day-header__week"></div>
+            <div class="day-header__name">Tomorrow:</div>
+            <div class="day-header__date-wrapper">
+                <div class="day-header__date"></div>
+                <span class="day-header__date-logo glyphicon glyphicon-calendar"></span>
+            </div>
           </div>
         </div>
-      </div>
 
       <div class="task-edit hidden">
           <div class="task-edit__top-panel">
             <div class="form-task-types">
-              <input class="form-task-types-input" type="radio" name="exampleRadios" id="exampleRadios1" value="case" checked>
+              <input class="form-task-types-input" type="radio" name="radios" id="exampleRadios1" value="briefcase" checked>
               <label class="form-task-types-label" for="exampleRadios1">
                 <span class="glyphicon glyphicon-briefcase"></span>
               </label>
             </div>
             <div class="form-task-types">
-              <input class="form-task-types-input" type="radio" name="exampleRadios" id="exampleRadios2" value="call">
+              <input class="form-task-types-input" type="radio" name="radios" id="exampleRadios2" value="earphone">
               <label class="form-task-types-label" for="exampleRadios2">
                 <span class="glyphicon glyphicon-earphone"></span>
               </label>
             </div>
             <div class="form-task-types">
-              <input class="form-task-types-input" type="radio" name="exampleRadios" id="exampleRadios3" value="trip">
+              <input class="form-task-types-input" type="radio" name="radios" id="exampleRadios3" value="road">
               <label class="form-task-types-label" for="exampleRadios3">
                   <span class="glyphicon glyphicon-road"></span>
               </label>
             </div> 
            
             <div>
-              <input class="border border-info rounded" type="time" name="task-time">
-              <input class="border border-info rounded" type="date" name="task-day">
+              <input class="task-edit__time border border-info rounded" type="time" name="task-time">
+              <input class="task-edit__date border border-info rounded" type="date" name="task-date">
             </div>
 
             <div class="task-date-types">
-              <input class="form-date-types-input" type="radio" name="exampleRadios_" id="exampleRadios1_" value="case" checked>
+              <input class="form-date-types-input" type="radio" name="radios2" id="exampleRadios1_" value="log-in">
               <label class="form-date-types-label" for="exampleRadios1_">
                   <span class="glyphicon glyphicon-log-in"></span>
               </label>
             </div>
             <div class="task-date-types">
-              <input class="form-date-types-input" type="radio" name="exampleRadios_" id="exampleRadios2_" value="case">
+              <input class="form-date-types-input" type="radio" name="radios2" id="exampleRadios2_" value="unchecked">
               <label class="form-date-types-label" for="exampleRadios2_">
                 <span class="glyphicon glyphicon-unchecked"></span>  
               </label>
             </div>  
             <div class="task-date-types">
-              <input class="form-date-types-input" type="radio" name="exampleRadios_" id="exampleRadios3_" value="case">
+              <input class="form-date-types-input" type="radio" name="radios2" id="exampleRadios3_" value="log-out" checked>
               <label class="form-date-types-label" for="exampleRadios3_">
                 <span class="glyphicon glyphicon-log-out"></span>  
               </label>
-            </div>
-           
+            </div>           
           </div>
+
           <p class="text-center">Task header</p>
           <input class="task-edit__task-header border border-info rounded" type="text">
+          <p class="task-edit__header-error text-left text-danger invisible">You must type header</p>
           <p class="text-center">Task details</p>
           <textarea class="task-edit__task-details border border-info rounded" rows="10"></textarea>
           <div class="task-edit__buttons-wrapper">
@@ -118,7 +120,7 @@
               <span class="glyphicon glyphicon-backward"></span>
               Back
             </button>
-            <button class="task-edit_button-back btn btn-outline-success" type="button">
+            <button class="task-edit_button-save btn btn-outline-success" type="button">
               <span class="glyphicon glyphicon-ok"></span>
               Save              
             </button>           
