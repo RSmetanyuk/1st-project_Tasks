@@ -5,15 +5,15 @@ const NowMoment = moment();
 const taskList = [{
   date: 1000000000000, 
   taskHeader: 'Some task header 1', 
-  taskDetails: 'some task details details details details details 1', 
-  taskDateType: 2, 
-  taskType: 1,
+  taskDetails: 'some task details details ', 
+  taskDateType: 'log-out', 
+  taskType: 'road',
   deleated: false}, {
   date: 2000000000000, 
-  taskHeader: 'Some task header 1', 
-  taskDetails: 'some task details details details details details 1', 
-  taskDateType: 2, 
-  taskType: 1,
+  taskHeader: 'Some task new header', 
+  taskDetails: 'some task details details details details details ', 
+  taskDateType: 'log-in', 
+  taskType: 'briefcase',
   deleated: false}];
 
 const $$menueButtons = document.getElementsByClassName('footer-button');
@@ -35,6 +35,16 @@ const $taskEditHeaderError = document.getElementsByClassName('task-edit__header-
 const $taskEditTaskDetails = document.getElementsByClassName('task-edit__task-details')[0];
 let mainWiewingDay = moment();
 
+const taskEditFormReset= () => {
+  $$taskEditTypesInput[0].checked = true;
+  $taskEditTime.value = moment().format('HH:mm');
+  $taskEditDate.value = moment().format('YYYY-MM-DD');
+  $$taskEditdDateTypes[2].checked = true;
+  $taskEditTaskHeader.value = '';
+  $taskEditTaskDetails.value = '';
+  $taskEditHeaderError.classList.add('invisible');
+};
+
 const buttonNewOnClick = () => {
   document.getElementsByClassName('task-edit')[0].classList.toggle('hidden');
   document.getElementsByClassName('main-view')[0].classList.toggle('hidden');
@@ -48,21 +58,24 @@ const taskEditButtonBackOnClick = () => {
   $buttonNew.removeAttribute('disabled');
 };
 
-const taskEditFormReset= () => {
-  $$taskEditTypesInput[0].checked = true;
-  $taskEditTime.value = moment().format('HH:mm');
-  $taskEditDate.value = moment().format('YYYY-MM-DD');
-  $$taskEditdDateTypes[2].checked = true;
-  $taskEditTaskHeader.value = '';
-  $taskEditTaskDetails.value = '';
-  $taskEditHeaderError.classList.add('invisible');
-};
-
 const taskEditButtonSaveOnClick = () => {
   if ($taskEditTaskHeader.value.length < 4) {
     $taskEditHeaderError.classList.remove('invisible')
     return ;
   };
+  const newObjectTask = ceateNewTaskInTaskListArray();
+  const newHtmlTask = createHtmlTask(newObjectTask);
+  $tasksContainer.appendChild(newHtmlTask);
+  taskEditButtonBackOnClick ();
+};
+
+const mainWiewingDayOnInput = () => {
+  mainWiewingDay = moment($mainWiewingDay.value);
+  $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
+  $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
+};
+
+const ceateNewTaskInTaskListArray = () => {
   const date = new Date(`${$taskEditDate.value} ${$taskEditTime.value}`);
   const newTask = {
     datePrimitive: date.valueOf(),
@@ -70,24 +83,12 @@ const taskEditButtonSaveOnClick = () => {
     time: $taskEditTime.value,
     taskHeader: $taskEditTaskHeader.value, 
     taskDetails: $taskEditTaskDetails.value, 
-    taskDateType: finfFormValue('form-date-types-input'), 
-    taskType: finfFormValue('form-task-types-input'),
-    deleated: false};
-  const $task = createHtmlTask(newTask);
-  $tasksContainer.appendChild($task);
+    taskDateType: findFormValue('form-date-types-input'), 
+    taskType: findFormValue('form-task-types-input'),
+    deleated: false
+  };
   taskList.push(newTask);
-  taskEditButtonBackOnClick ();
-
-  console.log(taskList[taskList.length - 1]);
-  
-  console.log($taskEditTaskHeader.value.length);
-
-};
-
-const mainWiewingDayOnInput = () => {
-  mainWiewingDay = moment($mainWiewingDay.value);
-  $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
-  $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
+  return newTask;
 };
 
 const makeMainWiewingDayName = () => {
@@ -106,7 +107,7 @@ const changeMainWiewingDay = days => {
 const incrMainWiewingDay = () => changeMainWiewingDay(1);
 const decrMainWiewingDay = () => changeMainWiewingDay(-1);
 
-const finfFormValue = (form) => {
+const findFormValue = (form) => {
   return Array.from(document.getElementsByClassName(form)).
     find(r => r.checked).value;
 };
@@ -138,14 +139,12 @@ const createHtmlTask = (objectTask) => {
 
 const init = () => {
   changeMainWiewingDay(0);
-  //document.getElementsByClassName('task__task-date')[0].innerHTML = NowMoment.format('HH : MM');  //temporary
   $mainDatePrevBtn.addEventListener('click', decrMainWiewingDay);
   $mainDateNextBtn.addEventListener('click', incrMainWiewingDay);
   $mainWiewingDay.addEventListener('input', mainWiewingDayOnInput);
   $buttonNew.addEventListener('click', buttonNewOnClick);
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
   $taskEditButtonSave.addEventListener('click', taskEditButtonSaveOnClick);
-  $buttonNew.addEventListener('click', buttonNewOnClick);
 };
 
 init();
