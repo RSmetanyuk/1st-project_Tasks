@@ -65,25 +65,49 @@
 
       <div class="task-edit hidden">
           <div class="task-edit__top-panel">
-            <div class="task-edit__type-case btn btn-outline-info">
-              <span class="glyphicon glyphicon-briefcase"></span>
+            <div class="form-task-types">
+              <input class="form-task-types-input" type="radio" name="exampleRadios" id="exampleRadios1" value="case" checked>
+              <label class="form-task-types-label" for="exampleRadios1">
+                <span class="glyphicon glyphicon-briefcase"></span>
+              </label>
             </div>
-            <div class="task-edit__type-case btn btn-outline-info">
-              <span class="glyphicon glyphicon-earphone"></span>
+            <div class="form-task-types">
+              <input class="form-task-types-input" type="radio" name="exampleRadios" id="exampleRadios2" value="call">
+              <label class="form-task-types-label" for="exampleRadios2">
+                <span class="glyphicon glyphicon-earphone"></span>
+              </label>
             </div>
+            <div class="form-task-types">
+              <input class="form-task-types-input" type="radio" name="exampleRadios" id="exampleRadios3" value="trip">
+              <label class="form-task-types-label" for="exampleRadios3">
+                  <span class="glyphicon glyphicon-road"></span>
+              </label>
+            </div> 
+           
             <div>
               <input class="border border-info rounded" type="time" name="task-time">
               <input class="border border-info rounded" type="date" name="task-day">
             </div>
-            <div class="task-edit__date-type-up-to btn btn-outline-info">
-              <span class="glyphicon glyphicon-log-in"></span>
+
+            <div class="task-date-types">
+              <input class="form-date-types-input" type="radio" name="exampleRadios_" id="exampleRadios1_" value="case" checked>
+              <label class="form-date-types-label" for="exampleRadios1_">
+                  <span class="glyphicon glyphicon-log-in"></span>
+              </label>
             </div>
-            <div class="task-edit__date-type-all-day btn btn-outline-info">
-              <span class="glyphicon glyphicon-unchecked"></span>  
+            <div class="task-date-types">
+              <input class="form-date-types-input" type="radio" name="exampleRadios_" id="exampleRadios2_" value="case">
+              <label class="form-date-types-label" for="exampleRadios2_">
+                <span class="glyphicon glyphicon-unchecked"></span>  
+              </label>
+            </div>  
+            <div class="task-date-types">
+              <input class="form-date-types-input" type="radio" name="exampleRadios_" id="exampleRadios3_" value="case">
+              <label class="form-date-types-label" for="exampleRadios3_">
+                <span class="glyphicon glyphicon-log-out"></span>  
+              </label>
             </div>
-            <div class="task-edit_date-type-start-from btn btn-outline-info">
-              <span class="glyphicon glyphicon-log-out"></span>  
-            </div>                           
+           
           </div>
           <p class="text-center">Task header</p>
           <input class="task-edit__task-header border border-info rounded" type="text">

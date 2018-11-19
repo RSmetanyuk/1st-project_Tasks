@@ -59,17 +59,17 @@ const mainWiewingDayOnInput = () => {
   $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
 };
 
+const makeMainWiewingDayName = () => {
+  return (Math.abs(moment().diff(mainWiewingDay, 'days')) < 1) ? 
+    mainWiewingDay.calendar().split(' ')[0] :
+    mainWiewingDay.fromNow();
+};
+
 const changeMainWiewingDay = days => {
   mainWiewingDay.add('days', days);
   $mainWiewingDay.value = mainWiewingDay.format('YYYY-MM-DD');
   $mainWiewingWeek.innerHTML = `${mainWiewingDay.format('Wo')} week`;
   $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
-};
-
-const makeMainWiewingDayName = () => {
-  return (Math.abs(moment().diff(mainWiewingDay, 'days')) < 1) ? 
-    mainWiewingDay.calendar().split(' ')[0] :
-    mainWiewingDay.fromNow();
 };
 
 const incrMainWiewingDay = () => changeMainWiewingDay(1);
