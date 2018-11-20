@@ -1,36 +1,34 @@
-const NowMoment = moment();
-
 //const taskDateTypes = {up-to: 'log-in', all-day: 'unchecked', start-from: 'log-out'};
 //const taskTypes = {case: 'briefcase', call: 'earphone', trip: 'road'};
 const taskList = [{
-  date: "2018-11-19",
+  date: '2018-11-19',
   datePrimitive: 1542659940000,
   deleated: false,
-  taskDateType: "log-out",
-  taskDetails: "app details. Task started from specified hours",
-  taskHeader: "app header",
-  taskType: "briefcase",
-  time: "22:39"
+  taskDateType: 'log-out',
+  taskDetails: 'app details. Task started from specified hours',
+  taskHeader: 'app header',
+  taskType: 'briefcase',
+  time: '22:39'
 },
 {
-  date: "2018-11-20",
+  date: '2018-11-20',
   datePrimitive: 1542746640000,
   deleated: false,
-  taskDateType: "log-out",
-  taskDetails: "app details. Task started from specified hours",
-  taskHeader: "app header",
-  taskType: "earphone",
-  time: "22:44"
+  taskDateType: 'log-out',
+  taskDetails: 'app details. Task started from specified hours',
+  taskHeader: 'app header',
+  taskType: 'earphone',
+  time: '22:44'
 },
 {
-  date: "2018-11-19",
+  date: '2018-11-19',
   datePrimitive: 1542659940000,
   deleated: false,
-  taskDateType: "log-in",
-  taskDetails: "app details. Task started from specified hours bbbbbbbbbbbbbbbbbbbbbbbbbbb",
-  taskHeader: "app header another",
-  taskType: "road",
-  time: "22:39"
+  taskDateType: 'log-in',
+  taskDetails: 'app details. Task started from specified hours bbbbbbbbbbbbbbbbbbbbbbbbbbb',
+  taskHeader: 'app header another',
+  taskType: 'road',
+  time: '22:39'
 }];
 
 const $$menueButtons = document.getElementsByClassName('footer-button');
@@ -52,7 +50,7 @@ const $taskEditHeaderError = document.getElementsByClassName('task-edit__header-
 const $taskEditTaskDetails = document.getElementsByClassName('task-edit__task-details')[0];
 let mainWiewingDay = moment();
 
-const taskEditFormReset= () => {
+const taskEditFormReset = () => {
   $$taskEditTypesInput[0].checked = true;
   $taskEditTime.value = mainWiewingDay.format('HH:mm');
   $taskEditDate.value = mainWiewingDay.format('YYYY-MM-DD');
@@ -77,9 +75,9 @@ const taskEditButtonBackOnClick = () => {
 
 const taskEditButtonSaveOnClick = () => {
   if ($taskEditTaskHeader.value.length < 4) {
-    $taskEditHeaderError.classList.remove('invisible')
+    $taskEditHeaderError.classList.remove('invisible');
     return ;
-  };
+  }
   const newObjectTask = ceateNewTaskInTaskListArray();
   const newHtmlTask = createHtmlTask(newObjectTask);
   $tasksContainer.appendChild(newHtmlTask);
@@ -126,12 +124,12 @@ const changeMainWiewingDay = day => {
 const incrMainWiewingDay = () => changeMainWiewingDay(1);
 const decrMainWiewingDay = () => changeMainWiewingDay(-1);
 
-const findFormValue = (form) => {
+const findFormValue = form => {
   return Array.from(document.getElementsByClassName(form)).
     find(r => r.checked).value;
 };
 
-const createHtmlTask = (objectTask) => {
+const createHtmlTask = objectTask => {
   const $task = document.createElement('div');
   $task.className = 'task';
   $task.innerHTML = `
@@ -162,10 +160,10 @@ const renderMainWiewingDay = () => {
   $mainWiewingDayName.innerHTML = makeMainWiewingDayName();
 };
 
-const renderTasks = (day) => {
+const renderTasks = day => {
   $tasksContainer.innerHTML = '';
   for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].date == day) {
+    if (taskList[i].date === day) {
       const newHtmlTask = createHtmlTask(taskList[i]);
       $tasksContainer.appendChild(newHtmlTask);
     }
