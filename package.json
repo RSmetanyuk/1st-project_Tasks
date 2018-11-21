@@ -41,6 +41,7 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "moment-transform": "^1.0.1"
   }
 }

@@ -34,7 +34,8 @@
 
 .task {
   margin-bottom: 6px;
-  border: 1px solid black;
+  border: 1px solid #17a2b8;
+  border-radius: .25rem;
   &__task-main {
     padding-left: 3px;
     display: flex; 
@@ -46,23 +47,27 @@
     width: 10%;
   }
   &__task-header {
-    width: 70%
+    width: 64%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &__task-type {
     width: 5%;
     text-align: center;
   }
+
   &__task-edit-button {
-    width: 5%;
+    width: 8%;
     text-align: center;
   }
   &__task-deleat-button {
-    width: 5%;
+    width: 8%;
     text-align: center;
   }
   &__task-details {
     padding-left: 3px;
-    border-top: 1px solid gray; 
+    border-top: 1px solid #17a2b8;
+    overflow: auto;
   }
 }
 
