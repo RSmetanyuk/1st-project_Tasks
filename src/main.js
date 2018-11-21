@@ -129,9 +129,9 @@ const findFormValue = form => {
     find(r => r.checked).value;
 };
 
-const createHtmlTask = (objectTask, taskNumber) => {
+const createHtmlTask = (objectTask, taskNumber, backgroundColor) => {
   const $task = document.createElement('div');
-  $task.className = 'task';
+  $task.className = `task ${backgroundColor}`;
   $task.dataset.taskNumber = taskNumber;
   $task.innerHTML = `
     <div class="task__task-main">
@@ -179,9 +179,11 @@ const renderTasks = () => {
   $tasksContainer.innerHTML = '';
   for (let i = 0; i < taskList.length; i++) {
     if (taskList[i].date === mainWiewingDay.format('YYYY-MM-DD')) {
-      const newHtmlTask = createHtmlTask(taskList[i], i);
+      const backgroundColor = (taskList[i].datePrimitive < Date.now().valueOf()) ?
+        'background--grey' : 'background--green';
+      const newHtmlTask = createHtmlTask(taskList[i], i, backgroundColor);
       $tasksContainer.appendChild(newHtmlTask);
-    }
+    }  
   }
 };
 
