@@ -157,7 +157,10 @@ const createHtmlTask = (objectTask, taskNumber, backgroundColor) => {
 
 const addRemoveEventListener = () => {
   $tasksContainer.addEventListener('click', event => {
-    const {target} = event;
+    let {target} = event;
+    if (target.parentElement.classList.contains('task__task-deleat-button')) { 
+      target = target.parentElement;
+    }
     const isRemoveBtnClicked = target.classList.contains('task__task-deleat-button');
     const $task = target.parentElement.parentElement;
     const indexOfRemovedTaskNumber = $task.getAttribute('data-taskNumber');

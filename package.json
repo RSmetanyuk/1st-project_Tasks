@@ -1,7 +1,7 @@
 {
   "name": "project-scaffoldings",
   "version": "1.0.0",
-  "description": "",
+  "description": "* Project description:\r This is \"to-do\" app. The main idea of the project was: 1) to simply add and show tasks in 3 categories: call, car-trip, and case; 2) in addition to task header ability to write and see long task description; 3) easy seeing and switching days. \r This app has next features:\r - showing week number;\r - showing day name for today and tomorrow and number of days to now for else dates;\r - easy switching day by arrow buttons;\r - easy choosing day by calendar;\r - showing task time category: start-from, up-to, all-day;\r - showing task category: call, trip, case;\r - showing passed tasks in grey color and feature in green;\r - ability to write a long description for the task.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack/webpack.dev.js --open HOST=0.0.0.0",
@@ -36,12 +36,16 @@
     "style-loader": "^0.23.1",
     "stylelint": "^9.6.0",
     "stylelint-config-standard": "^18.2.0",
-    "webpack": "^4.22.0",
+    "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
     "moment": "^2.22.2",
     "moment-transform": "^1.0.1"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": []
 }
