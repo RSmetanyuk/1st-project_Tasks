@@ -1,3 +1,8 @@
+import 'bootstrap';
+import icons from 'glyphicons';
+import moment from 'moment';
+import transform from 'moment-transform';
+
 //const taskDateTypes = {up-to: 'log-in', all-day: 'unchecked', start-from: 'log-out'};
 //const taskTypes = {case: 'briefcase', call: 'earphone', trip: 'road'};
 const taskList = [{
@@ -116,7 +121,7 @@ const makeMainWiewingDayName = () => {
 };
 
 const changeMainWiewingDay = day => {
-  mainWiewingDay.add('days', day);
+  mainWiewingDay.add(day, 'days');
   renderMainWiewingDay();  
   renderTasks();
 };
