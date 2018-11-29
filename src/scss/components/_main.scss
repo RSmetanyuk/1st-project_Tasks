@@ -12,6 +12,9 @@
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
+    .main-date__prev-btn {
+      padding: 0px;
+    }
   }
   &__name {
     width: 60%;

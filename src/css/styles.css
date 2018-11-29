@@ -6357,6 +6357,8 @@ a {
     width: calc(100% / 3);
     display: flex;
     justify-content: center; }
+    .day-header__name-wrapper .main-date__prev-btn {
+      padding: 0px; }
   .day-header__name {
     width: 60%;
     text-align: center; }

@@ -47,11 +47,10 @@
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
-    "glyphicons": "^0.2.0",
     "jquery": "^3.3.1",
     "moment": "^2.22.2",
     "moment-transform": "^1.0.1",
-    "popper.js": "^1.14.5"
+    "popper.js": "^1.14.6"
   },
   "directories": {
     "lib": "lib"

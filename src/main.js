@@ -1,5 +1,4 @@
 import 'bootstrap';
-import icons from 'glyphicons';
 import moment from 'moment';
 import transform from 'moment-transform';
 
