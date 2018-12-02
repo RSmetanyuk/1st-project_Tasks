@@ -12,7 +12,6 @@
     "precommit": "",
     "prepush": "npm run test",
     "scss": "node-sass --watch src/scss -o dist",
-    "dev": "webpack --mode development --config ./webpack/webpack.dev.js",
     "build": "webpack --mode production --config ./webpack/webpack.prod.js"
   },
   "repository": {
