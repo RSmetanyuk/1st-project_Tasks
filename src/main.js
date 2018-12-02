@@ -4,36 +4,8 @@ import transform from 'moment-transform';
 
 //const taskDateTypes = {up-to: 'log-in', all-day: 'unchecked', start-from: 'log-out'};
 //const taskTypes = {case: 'briefcase', call: 'earphone', trip: 'road'};
-const taskList = [{
-  date: '2018-11-19',
-  datePrimitive: 1542659940000,
-  deleated: false,
-  taskDateType: 'log-out',
-  taskDetails: 'app details. Task started from specified hours',
-  taskHeader: 'app header',
-  taskType: 'briefcase',
-  time: '22:39'
-},
-{
-  date: '2018-11-20',
-  datePrimitive: 1542746640000,
-  deleated: false,
-  taskDateType: 'log-out',
-  taskDetails: 'app details. Task started from specified hours',
-  taskHeader: 'app header',
-  taskType: 'earphone',
-  time: '22:44'
-},
-{
-  date: '2018-11-19',
-  datePrimitive: 1542659940000,
-  deleated: false,
-  taskDateType: 'log-in',
-  taskDetails: 'app details. Task started from specified hours bbbbbbbbbbbbbbbbbbbbbbbbbbb',
-  taskHeader: 'app header another',
-  taskType: 'road',
-  time: '22:39'
-}];
+const taskList = (localStorage.getItem('taskList') === null) ? [] : JSON.parse(localStorage.getItem('taskList'));
+console.log(taskList);
 
 const $$menueButtons = document.getElementsByClassName('footer-button');
 const $buttonNew = $$menueButtons[0];
@@ -95,6 +67,11 @@ const mainWiewingDayOnInput = () => {
   changeMainWiewingDay(0);
 };
 
+const findFormValue = form => {
+  return Array.from(document.getElementsByClassName(form)).
+    find(r => r.checked).value;
+};
+
 const ceateNewTaskInTaskListArray = () => {
   const date = new Date(`${$taskEditDate.value} ${$taskEditTime.value}`);
   const newTask = {
@@ -110,6 +87,7 @@ const ceateNewTaskInTaskListArray = () => {
   taskList.push(newTask);
   taskList.sort((a,b) => (a.datePrimitive > b.datePrimitive) ? 1 :
     ((b.datePrimitive > a.datePrimitive) ? -1 : 0));
+  localStorage.setItem('taskList', JSON.stringify(taskList));
   return newTask;
 };
 
@@ -127,11 +105,6 @@ const changeMainWiewingDay = day => {
 
 const incrMainWiewingDay = () => changeMainWiewingDay(1);
 const decrMainWiewingDay = () => changeMainWiewingDay(-1);
-
-const findFormValue = form => {
-  return Array.from(document.getElementsByClassName(form)).
-    find(r => r.checked).value;
-};
 
 const createHtmlTask = (objectTask, taskNumber, backgroundColor) => {
   const $task = document.createElement('div');
@@ -159,7 +132,7 @@ const createHtmlTask = (objectTask, taskNumber, backgroundColor) => {
   return $task;
 };
 
-const addRemoveEventListener = () => {
+const addRemoveTaskListener = () => {
   $tasksContainer.addEventListener('click', event => {
     let {target} = event;
     if (target.parentElement.classList.contains('task__task-deleat-button')) { 
@@ -171,7 +144,8 @@ const addRemoveEventListener = () => {
   
     if (isRemoveBtnClicked) {
       $tasksContainer.removeChild($task);
-      taskList.splice(indexOfRemovedTaskNumber, 1);    
+      taskList.splice(indexOfRemovedTaskNumber, 1);
+      localStorage.setItem('taskList', JSON.stringify(taskList));
     }
   });
 };
@@ -203,7 +177,7 @@ const init = () => {
   $buttonNew.addEventListener('click', buttonNewOnClick);
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
   $taskEditButtonSave.addEventListener('click', taskEditButtonSaveOnClick);
-  addRemoveEventListener();
+  addRemoveTaskListener();
 };
 
 init();
