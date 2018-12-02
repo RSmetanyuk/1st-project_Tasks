@@ -5,11 +5,9 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"-->
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   <title>Tasks</title>
   <link rel="shortcut icon" href="src/images/tasks.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="dist/styles.css">
   <meta http-equiv="Cache-Control" content="private">
 </head>
 <body>
@@ -22,7 +20,7 @@
           <div class="day-header__name-wrapper">
             <button type="button" class="main-date__prev-btn btn btn-outline-info"><img src="src/images/back.svg" alt="previous date button" height="16" width="16"></img></button>
             <div class="day-header__name"></div>
-            <button type="button" class="main-date__next-btn btn btn-outline-info"><span class="glyphicon glyphicon-forward"></span></button>
+            <button type="button" class="main-date__next-btn btn btn-outline-info"><img src="src/images/next.svg" alt="next date button" height="16" width="16"></button>
           </div>
           <div class="day-header__date-wrapper">
             <input class="day-header__date border border-info rounded" type="date">       
@@ -37,19 +35,19 @@
             <div class="form-task-types">
               <input class="form-task-types-input" type="radio" name="radios" id="exampleRadios1" value="briefcase" checked>
               <label class="form-task-types-label" for="exampleRadios1">
-                <span class="glyphicon glyphicon-briefcase"></span>
+                <img src="src/images/briefcase.svg" height="20" width="20">
               </label>
             </div>
             <div class="form-task-types">
               <input class="form-task-types-input" type="radio" name="radios" id="exampleRadios2" value="earphone">
               <label class="form-task-types-label" for="exampleRadios2">
-                <span class="glyphicon glyphicon-earphone"></span>
+                <img src="src/images/earphone.svg" height="20" width="20">
               </label>
             </div>
             <div class="form-task-types">
               <input class="form-task-types-input" type="radio" name="radios" id="exampleRadios3" value="road">
               <label class="form-task-types-label" for="exampleRadios3">
-                  <span class="glyphicon glyphicon-road"></span>
+                <img src="src/images/road.svg" height="20" width="20">
               </label>
             </div> 
            
@@ -61,19 +59,19 @@
             <div class="task-date-types">
               <input class="form-date-types-input" type="radio" name="radios2" id="exampleRadios1_" value="log-in">
               <label class="form-date-types-label" for="exampleRadios1_">
-                  <span class="glyphicon glyphicon-log-in"></span>
+                  <img src="src/images/log-in.svg" height="20" width="20">
               </label>
             </div>
             <div class="task-date-types">
               <input class="form-date-types-input" type="radio" name="radios2" id="exampleRadios2_" value="unchecked">
               <label class="form-date-types-label" for="exampleRadios2_">
-                <span class="glyphicon glyphicon-unchecked"></span>  
+                <img src="src/images/unchecked.svg" height="20" width="20">
               </label>
             </div>  
             <div class="task-date-types">
               <input class="form-date-types-input" type="radio" name="radios2" id="exampleRadios3_" value="log-out" checked>
               <label class="form-date-types-label" for="exampleRadios3_">
-                <span class="glyphicon glyphicon-log-out"></span>  
+                <img src="src/images/log-out.svg" height="20" width="20">
               </label>
             </div>           
           </div>
@@ -85,15 +83,15 @@
           <textarea class="task-edit__task-details border border-info rounded" rows="10"></textarea>
           <div class="task-edit__buttons-wrapper">
             <button class="task-edit_button-back btn btn-outline-primary" type="button">
-              <span class="glyphicon glyphicon-backward"></span>
+              <img src="src/images/backward.svg" height="20" width="20">
               Back
             </button>
             <button class="task-edit_button-save btn btn-outline-success" type="button">
-              <span class="glyphicon glyphicon-ok"></span>
+              <img src="src/images/ok.svg" height="20" width="20">
               Save              
             </button>           
             <button class="task-edit__button-remove btn btn-outline-danger" type="button">
-              <span class="glyphicon glyphicon-remove"></span>
+              <img src="src/images/remove.svg" height="20" width="20">
               Remove              
             </button>
           </div>
@@ -104,36 +102,37 @@
       <ul>
         <li>
           <button class="footer-button button-new btn btn-outline-info" type="button">
-            <span class="glyphicon glyphicon glyphicon-plus-sign"></span>
+            <img src="src/images/plus.svg" height="20" width="20">
             New
           </button>
         </li>
         <li>
           <a class="footer-button button-search" href="#">
-            <span class="glyphicon glyphicon-search"></span>
+            <img src="src/images/search.svg" height="20" width="20">
             Search
           </a>
         </li>        
         <li>
           <a class="footer-button button-config" href="#">
-            <span class="glyphicon glyphicon-cog"></span>
+            <img src="src/images/settings.svg" height="20" width="20">
             Settings
           </a>
         </li>
         <li>
           <a class="footer-button button-calendar" href="#">
-             <span class="glyphicon glyphicon-calendar"></span>
+             <img src="src/images/calendar.svg" height="20" width="20">
              Calendar
           </a>
         </li>
         <li>
           <a class="footer-button button-trash" href="#">
-            <span class="glyphicon glyphicon-trash"></span>
-            Deleated
+            <img src="src/images/deleted.svg" height="20" width="20">
+            Deleted
           </a>
         </li>
-      </ul>      
+      </ul>
     </footer>
   </div>
+
 </body>
 </html>

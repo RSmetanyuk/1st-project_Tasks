@@ -41,15 +41,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './indexSrc.html'
-    }),
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, '../'),
-    compress: true,
-    historyApiFallback: true
   }
 };

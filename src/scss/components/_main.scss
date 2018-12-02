@@ -12,7 +12,7 @@
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
-    .main-date__prev-btn {
+    .main-date__prev-btn, .main-date__next-btn {
       padding: 0px;
     }
   }
@@ -25,14 +25,6 @@
     display: flex;
     justify-content: flex-end;
   }
-  /*__date {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid #17a2b8;;
-  }
-  */
 }
 
 .task {

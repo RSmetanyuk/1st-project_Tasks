@@ -140,18 +140,18 @@ const createHtmlTask = (objectTask, taskNumber, backgroundColor) => {
   $task.innerHTML = `
     <div class="task__task-main">
       <div class="task__task-date-type ">
-        <span class="glyphicon glyphicon-${objectTask.taskDateType}"></span>
+        <img src="src/images/${objectTask.taskDateType}.svg" height="16" width="16"></img>
       </div>
       <div class="task__task-date">${objectTask.time}</div>
       <div class="task__task-type">
-      <span class="glyphicon glyphicon-${objectTask.taskType}"></span>
+      <img src="src/images/${objectTask.taskType}.svg" height="16" width="16"></img>
       </div>
       <div class="task__task-header">${objectTask.taskHeader}</div>
       <button type="button" class="task__task-edit-button btn btn-outline-warning">
-        <span class="glyphicon glyphicon-pencil"></span>
+        <img src="src/images/pencil.svg" height="16" width="16"></img>
       </button> 
       <button type="button" class="task__task-deleat-button btn btn-outline-danger">
-        <span class="glyphicon glyphicon-remove"></span>
+        <img src="src/images/remove.svg" height="16" width="16"></img>
       </button>
     </div>              
     <div class="task__task-details">${objectTask.taskDetails}</div>
