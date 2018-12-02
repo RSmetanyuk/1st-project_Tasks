@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const sass = require('node-sass');
 
 module.exports = {
   mode: 'development',
@@ -41,5 +42,11 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/indexSrc.html',
+      filename: "../index.html"
+    })
+  ]  
 };

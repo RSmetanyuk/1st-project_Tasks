@@ -11,7 +11,7 @@
     "stylelint": "stylelint './src/**/*.css'",
     "precommit": "",
     "prepush": "npm run test",
-    "scss": "node-sass --watch src/scss -o dist",
+    "scss": "node-sass --watch src/scss -o assets",
     "build": "webpack --mode production --config ./webpack/webpack.prod.js"
   },
   "repository": {
