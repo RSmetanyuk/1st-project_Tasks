@@ -1,5 +1,12 @@
 .main {
+  @include breakpoint(mobile) {
+    height: calc(100% - #{$footer-height}*2);
+  }
   @include breakpoint(tablet) {
+    .task {
+      font-size: $base-font-size;
+    }
+  }@include breakpoint(tablet) {
     .task {
       font-size: $base-font-size;
     }

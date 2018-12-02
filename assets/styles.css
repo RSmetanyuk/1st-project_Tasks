@@ -6444,6 +6444,14 @@ a {
     .footer-button :first-child {
       margin: auto; }
 
+@media (max-width: 720px) {
+  .main {
+    height: calc(100% - 65px*2); } }
+
+@media (min-width: 721px) {
+  .main .task {
+    font-size: 16px; } }
+
 @media (min-width: 721px) {
   .main .task {
     font-size: 16px; } }
