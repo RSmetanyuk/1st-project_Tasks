@@ -27,3 +27,19 @@ Moment.js Transform https://a----.github.io/moment-transform/
 https://rsmetanyuk.github.io/Tasks/
 
 * Mockups: https://wireframepro.mockflow.com/view/M305157dcf46783ad35900ecfb61f736e1539296931354#/page/d455c6f2e0e04b2f8be3343707c60c24
+
+* How to build/develop
+
+Clone from this github repository
+
+In local app folder run command 'npm i'
+
+In local app folder run command 'npm run scss' - if you save changes in 'src/scss' any file, webpack automatic build 'styles.css' file in 'assets' folder.
+
+In local app folder run command 'npm run start' to open app in locall server.
+
+In local app folder run command 'npm run build' to build 'index.html' and 'assets/bundle.js' by webpack.
+
+
+
+
