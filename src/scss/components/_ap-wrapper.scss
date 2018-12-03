@@ -1,6 +1,10 @@
+html, body { 
+  height: 100%; 
+}
+
 .ap-wrapper {
   margin: auto;
-  height: 100vh;
+  height: 100%;
   padding: 0.5vw;
   font-size: 3vw;
   @include breakpoint(tablet) {

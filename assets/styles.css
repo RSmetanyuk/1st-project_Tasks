@@ -6321,9 +6321,12 @@ a {
   text-decoration: none;
   color: 78829d; }
 
+html, body {
+  height: 100%; }
+
 .ap-wrapper {
   margin: auto;
-  height: 100vh;
+  height: 100%;
   padding: 0.5vw;
   font-size: 3vw; }
   @media (min-width: 721px) {
@@ -6443,10 +6446,6 @@ a {
     align-items: center; }
     .footer-button :first-child {
       margin: auto; }
-
-@media (max-width: 720px) {
-  .main {
-    height: calc(100% - 65px*2); } }
 
 @media (min-width: 721px) {
   .main .task {
