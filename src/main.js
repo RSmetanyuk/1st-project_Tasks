@@ -6,9 +6,9 @@ import transform from 'moment-transform';
 //const taskTypes = {case: 'briefcase', call: 'earphone', trip: 'road'};
 const taskList = (localStorage.getItem('taskList') === null) ? [] : JSON.parse(localStorage.getItem('taskList'));
 console.log(taskList);
-
 const $$menueButtons = document.getElementsByClassName('footer-button');
 const $buttonNew = $$menueButtons[0];
+const $buttonToday = $$menueButtons[3];
 const $tasksContainer = document.getElementsByClassName('tasks-container')[0];
 const $taskEditButtonBack = document.getElementsByClassName('task-edit_button-back')[0];
 const $taskEditButtonSave = document.getElementsByClassName('task-edit_button-save')[0];
@@ -17,7 +17,6 @@ const $mainDateNextBtn = document.getElementsByClassName('main-date__next-btn')[
 const $mainWiewingWeek = document.getElementsByClassName('day-header__week')[0];
 const $mainWiewingDay = document.getElementsByClassName('day-header__date')[0];
 const $mainWiewingDayName = document.getElementsByClassName('day-header__name')[0];
-
 const $$taskEditTypesInput = document.getElementsByClassName('form-task-types-input');
 const $taskEditTime = document.getElementsByClassName('task-edit__time')[0];
 const $taskEditDate = document.getElementsByClassName('task-edit__date')[0];
@@ -28,6 +27,7 @@ const $taskEditTaskDetails = document.getElementsByClassName('task-edit__task-de
 const mainWiewingDay = moment();
 
 const taskEditFormReset = () => {
+  mainWiewingDay.transform(moment().format('HH:mm:ss'));
   $$taskEditTypesInput[0].checked = true;
   $taskEditTime.value = mainWiewingDay.format('HH:mm');
   $taskEditDate.value = mainWiewingDay.format('YYYY-MM-DD');
@@ -41,13 +41,25 @@ const buttonNewOnClick = () => {
   document.getElementsByClassName('task-edit')[0].classList.toggle('hidden');
   document.getElementsByClassName('main-view')[0].classList.toggle('hidden');
   $buttonNew.setAttribute('disabled', '');
+  $buttonToday.setAttribute('disabled', '');
   taskEditFormReset();
+};
+
+const buttonTodayOnClick = () => {
+  if (mainWiewingDay.format('YYYY-MM-DD') !== moment().format('YYYY-MM-DD')) {
+    mainWiewingDay.transform(moment().format('YYYY-MM-DD HH:mm:ss'));
+    renderMainWiewingDay();
+    renderTasks();
+  } else {
+    mainWiewingDay.transform(moment().format('HH:mm:ss'));
+  }
 };
 
 const taskEditButtonBackOnClick = () => {
   document.getElementsByClassName('task-edit')[0].classList.toggle('hidden');
   document.getElementsByClassName('main-view')[0].classList.toggle('hidden');
   $buttonNew.removeAttribute('disabled');
+  $buttonToday.removeAttribute('disabled');
 };
 
 const taskEditButtonSaveOnClick = () => {
@@ -64,6 +76,7 @@ const taskEditButtonSaveOnClick = () => {
 
 const mainWiewingDayOnInput = () => {
   mainWiewingDay.transform($mainWiewingDay.value, 'YYYY-MM-DD');
+  console.log($mainWiewingDay.value);
   changeMainWiewingDay(0);
 };
 
@@ -175,6 +188,7 @@ const init = () => {
   $mainDateNextBtn.addEventListener('click', incrMainWiewingDay);
   $mainWiewingDay.addEventListener('input', mainWiewingDayOnInput);
   $buttonNew.addEventListener('click', buttonNewOnClick);
+  $buttonToday.addEventListener('click', buttonTodayOnClick);
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
   $taskEditButtonSave.addEventListener('click', taskEditButtonSaveOnClick);
   addRemoveTaskListener();

@@ -46,7 +46,7 @@ https://rsmetanyuk.github.io/Tasks/
 
 * make active 'remove" button on task edit screen.
 
-* make aktive 'Search', 'Setting', 'Calendar', 'Deleted' main menue buttons.
+* make aktive 'Search', 'Setting', 'Deleted' main menue buttons.
 
 
 
