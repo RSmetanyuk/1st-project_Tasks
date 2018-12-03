@@ -5,7 +5,6 @@ import transform from 'moment-transform';
 //const taskDateTypes = {up-to: 'log-in', all-day: 'unchecked', start-from: 'log-out'};
 //const taskTypes = {case: 'briefcase', call: 'earphone', trip: 'road'};
 const taskList = (localStorage.getItem('taskList') === null) ? [] : JSON.parse(localStorage.getItem('taskList'));
-console.log(taskList);
 const $$menueButtons = document.getElementsByClassName('footer-button');
 const $buttonNew = $$menueButtons[0];
 const $buttonToday = $$menueButtons[3];
@@ -25,6 +24,10 @@ const $taskEditTaskHeader = document.getElementsByClassName('task-edit__task-hea
 const $taskEditHeaderError = document.getElementsByClassName('task-edit__header-error')[0];
 const $taskEditTaskDetails = document.getElementsByClassName('task-edit__task-details')[0];
 const mainWiewingDay = moment();
+
+const todaySelected = () => {
+  return mainWiewingDay.format('YYYY-MM-DD') === moment().format('YYYY-MM-DD');
+}
 
 const taskEditFormReset = () => {
   mainWiewingDay.transform(moment().format('HH:mm:ss'));
@@ -46,12 +49,11 @@ const buttonNewOnClick = () => {
 };
 
 const buttonTodayOnClick = () => {
-  if (mainWiewingDay.format('YYYY-MM-DD') !== moment().format('YYYY-MM-DD')) {
+  if (!todaySelected()) {
     mainWiewingDay.transform(moment().format('YYYY-MM-DD HH:mm:ss'));
+    $buttonToday.setAttribute('disabled', '');
     renderMainWiewingDay();
     renderTasks();
-  } else {
-    mainWiewingDay.transform(moment().format('HH:mm:ss'));
   }
 };
 
@@ -76,7 +78,6 @@ const taskEditButtonSaveOnClick = () => {
 
 const mainWiewingDayOnInput = () => {
   mainWiewingDay.transform($mainWiewingDay.value, 'YYYY-MM-DD');
-  console.log($mainWiewingDay.value);
   changeMainWiewingDay(0);
 };
 
@@ -114,6 +115,11 @@ const changeMainWiewingDay = day => {
   mainWiewingDay.add(day, 'days');
   renderMainWiewingDay();  
   renderTasks();
+  if (todaySelected()) {
+    $buttonToday.setAttribute('disabled', '');
+  } else {
+    $buttonToday.removeAttribute('disabled');
+  }
 };
 
 const incrMainWiewingDay = () => changeMainWiewingDay(1);
