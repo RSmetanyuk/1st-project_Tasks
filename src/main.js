@@ -198,6 +198,9 @@ const init = () => {
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
   $taskEditButtonSave.addEventListener('click', taskEditButtonSaveOnClick);
   addRemoveTaskListener();
+  if(window.applicationCache) {
+    console.log('this browser supports offline applications');
+  }
 };
 
 init();
