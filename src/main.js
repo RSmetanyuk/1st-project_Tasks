@@ -187,6 +187,18 @@ const renderTasks = () => {
   }
 };
 
+const registerServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+    .then(function(registration) {
+      console.log('Registered:', registration);
+    })
+    .catch(function(error) {
+      console.log('Registration failed: ', error);
+    });
+  }
+};
+
 const init = () => {
   renderMainWiewingDay();
   renderTasks();
@@ -198,9 +210,7 @@ const init = () => {
   $taskEditButtonBack.addEventListener('click', taskEditButtonBackOnClick);
   $taskEditButtonSave.addEventListener('click', taskEditButtonSaveOnClick);
   addRemoveTaskListener();
-  if(window.applicationCache) {
-    console.log('this browser supports offline applications');
-  }
+  registerServiceWorker();
 };
 
 init();
