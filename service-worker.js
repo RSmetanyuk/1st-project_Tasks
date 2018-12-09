@@ -3,7 +3,7 @@ var urlsToCache = [
   '.',
   'assets/bundle.js',
   'assets/styles.css',
-  'src/images'
+  'src/images/tasks.ico'
 ];
 
 self.addEventListener('install', function(event) {
