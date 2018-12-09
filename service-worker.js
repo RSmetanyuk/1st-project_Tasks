@@ -2,7 +2,8 @@ var CACHE_NAME = 'static-cache';
 var urlsToCache = [
   '.',
   'assets/bundle.js',
-  'assets/styles.css'
+  'assets/styles.css',
+  'src/images'
 ];
 
 self.addEventListener('install', function(event) {
